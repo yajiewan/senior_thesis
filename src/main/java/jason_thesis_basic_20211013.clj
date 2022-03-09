@@ -432,14 +432,7 @@
       strat (strategy-initiate g cd cc po)]
   (run-simulation-strategy g rec strat 100 20 5 1))
 
-;Want to write into csv file
-(write-csv table
-           &
-           {:keys [delimiter quote-char end-of-line force-quote],
-            :or {delimiter \,,
-                 quote-char \",
-                 end-of-line "\n",
-                 force-quote false}})
+
 
 
 
