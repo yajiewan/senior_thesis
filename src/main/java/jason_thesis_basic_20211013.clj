@@ -2,6 +2,19 @@
 (require '[clojure.set :as s])
 
 ; ------------------------------- Helper functions -------------------------------
+(defn -main
+  []
+;This gives me the strategy matrix each generation for 100 generations
+(let [cd 50
+      cc 0
+      po 0
+      g (generate-world 4 100)
+      rec (resource-initiate g 0)
+      strat (strategy-initiate g cd cc po)]
+  (run-simulation-strategy g rec strat 100 20 5 1))
+  )
+
+
 
 ; Helper method that handles a single donation between two agents
 (defn donation-update
@@ -423,14 +436,7 @@
              (map #(str (% :title) ","  (% :year)) e))
 
 
-; This gives me the strategy matrix each generation for 100 generations
-(let [cd 50
-      cc 0
-      po 0
-      g (generate-world 4 100)
-      rec (resource-initiate g 0)
-      strat (strategy-initiate g cd cc po)]
-  (run-simulation-strategy g rec strat 100 20 5 1))
+
 
 
 
